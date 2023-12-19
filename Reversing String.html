@@ -83,6 +83,7 @@
     <p id="para">Output:</p> 
     <p id="output-para"></p> <!--where the output will be shown-->
     <script type="text/javascript">
+        function reverseString() { // function that runs when button is pressed
             if (document.getElementById('typebox').value == '' || document.getElementById('typebox').value == ' ') { // voids function when user types empty spaces
                 document.getElementById('output-para').innerHTML = 'Invalid input.'
             }
@@ -96,6 +97,14 @@
             }
             document.getElementById('typebox').innerHTML = '' // sets the text in the input box to nothing
         }
+        
+        var input = document.getElementById('typebox'); // when the user presses Enter, the function runs
+            input.addEventListener("keypress", function(event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    reverseString();
+                }
+            })
     </script>
 </body>
 </html>
