@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversing String</title>
+    <style>
+        body {
+            background-color: navy;
+        }
+        
+        h1 {
+            font-family: 'Trebuchet MS';
+            color: white;
+            text-align: center;
+            text-shadow: -2px 2px 5px black;
+            font-size: 80px;
+            margin: 0;
+        }
+        
+        .input-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #typebox {
+            font-size: 40px;
+            box-shadow: 2px 2px 5px black;
+            text-align: center;
+            font-family: 'Trebuchet MS';
+            margin-top: 30px;
+            width: 50%;
+        }
+        
+        #submit-string {
+            background-color: rgb(0, 191, 0);
+            color: white;
+            font-family: 'Trebuchet MS';
+            appearance: none;
+            border: none;
+            border-radius: 5px;
+            font-size: 70px;
+            padding: 10px;
+            box-shadow: 2px 2px 5px black;
+            margin-top: 30px;
+        }
+        
+        .button-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #para {
+            text-align: center;
+            color: white;
+            text-shadow: -2px 2px 5px black;
+            font-family: 'Trebuchet MS';
+            font-size: 40px;
+        }
+        
+        #output-para {
+            text-align: center;
+            color: white;
+            font-family: 'Trebuchet MS';
+            text-shadow: -2px 2px 5px black;
+            font-size: 70px;
+            margin: 0;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>What would you like to reverse today?</h1> <!--header-->
+    <div class="input-div"> 
+        <input type="typebox" placeholder="Enter text here" id="typebox"> <!--place to type text; input box-->
+    </div>
+    <div class="button-div">
+        <button id="submit-string" onclick="reverseString()">Reverse</button> <!--button to submit text-->
+    </div>
+    <p id="para">Output:</p> 
+    <p id="output-para"></p> <!--where the output will be shown-->
+    <script type="text/javascript">
+            if (document.getElementById('typebox').value == '' || document.getElementById('typebox').value == ' ') { // voids function when user types empty spaces
+                document.getElementById('output-para').innerHTML = 'Invalid input.'
+            }
+            
+            else {
+                let string = document.getElementById('typebox').value
+                let listString = string.split('')
+                let newString = []
+                for (i of listString) { newString.unshift(i) }
+                document.getElementById('output-para').innerHTML = newString.join('')
+            }
+            document.getElementById('typebox').innerHTML = '' // sets the text in the input box to nothing
+        }
+    </script>
+</body>
+</html>
